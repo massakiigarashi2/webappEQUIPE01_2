@@ -38,8 +38,7 @@ st.title("DASHBOARD - EQUIPE 01")
 #st.write("Como já deve ter percebido, o método st.write() é usado para escrita de texto e informações gerais!")
 menu = ["Dúvidas",
         "Respostas",
-        "Dúvidas e Respostas",
-        "EQUIPE 01"]
+        "Dúvidas e Respostas"]
 choice = st.sidebar.selectbox("Menu de Opções",menu)
 st.sidebar.info("By: Prof. Massaki de O. Igarashi")
 
