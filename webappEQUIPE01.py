@@ -33,9 +33,6 @@ NregDf01R = len(df01R)
 image01 = Image.open('ImagemLateral.jpg')
 st.sidebar.image(image01, width=300, caption='Mack Week CCT 2022') 
 st.title("PAINEL - EQUIPE 01")
-# st.header("Cabeçalho")
-#st.subheader("Sub Cabeçalho")
-#st.write("Como já deve ter percebido, o método st.write() é usado para escrita de texto e informações gerais!")
 menu = ["Dúvidas",
         "Respostas",
         "Dúvidas e Respostas"]
@@ -43,20 +40,20 @@ choice = st.sidebar.selectbox("Menu de Opções",menu)
 st.sidebar.info("By: Prof. Massaki de O. Igarashi")
 
 if choice == "Dúvidas": 
-    st.header("Painel Analítico: DÚVIDAS")   
+    st.header("Relatório de DÚVIDAS")   
     st.write('EQUIPE 01:')
     st.info('Dúvida(s) Enviada(s)')
     st.code(df01D['duvida']) 
            
 elif choice == "Respostas":       
-    st.header("Painel Analítico: RESPOSTAS")    
+    st.header("Relatório de RESPOSTAS")    
     st.write('EQUIPE 01:')    
     st.warning('Resposta do(a) TUTOR(A):')
     st.code(df01R['resposta'])  
 
                
 elif choice == "Dúvidas e Respostas":       
-    st.header("Painel Analítico: DÚVIDAS E RESPOSTAS")  
+    st.header("Relatório: DÚVIDAS E RESPOSTAS")  
     colDR1, colDR2 = st.columns((1,1))
     with colDR1:
         st.write("Nº TOTAL de Dúvidas (DESTA EQUIPE):")
