@@ -32,7 +32,7 @@ NregDf01R = len(df01R)
 
 image01 = Image.open('ImagemLateral.jpg')
 st.sidebar.image(image01, width=300, caption='Mack Week CCT 2022') 
-st.title("DASHBOARD - EQUIPE 01")
+st.title("PAINEL - EQUIPE 01")
 # st.header("Cabeçalho")
 #st.subheader("Sub Cabeçalho")
 #st.write("Como já deve ter percebido, o método st.write() é usado para escrita de texto e informações gerais!")
