@@ -42,13 +42,13 @@ st.sidebar.info("By: Prof. Massaki de O. Igarashi")
 if choice == "Dúvidas": 
     st.header("Relatório de DÚVIDAS")   
     st.write('EQUIPE 01:')
-    st.info('Dúvida(s) Enviada(s)')
+    st.warning('Dúvida(s) Enviada(s)')
     st.code(df01D['duvida']) 
            
 elif choice == "Respostas":       
     st.header("Relatório de RESPOSTAS")    
     st.write('EQUIPE 01:')    
-    st.warning('Resposta do(a) TUTOR(A):')
+    st.info('Resposta do(a) TUTOR(A):')
     st.code(df01R['resposta'])  
 
                
@@ -62,7 +62,7 @@ elif choice == "Dúvidas e Respostas":
         st.write("Nº TOTAL de dúvidas RESPONDIDAS:")
         st.info(NregDf01R)
     st.subheader('EQUIPE 01:')
-    st.info('Dúvida(s) Enviada(s)')
+    st.warning('Dúvida(s) Enviada(s)')
     st.code(df01D['duvida']) 
-    st.warning('Resposta do(a) TUTOR(A):')
+    st.info('Resposta do(a) TUTOR(A):')
     st.code(df01R['resposta'])  
