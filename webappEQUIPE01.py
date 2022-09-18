@@ -39,17 +39,7 @@ st.title("DASHBOARD - EQUIPES HACKATHON")
 menu = ["Dúvidas",
         "Respostas",
         "Dúvidas e Respostas",
-        "EQUIPE 01",
-        "EQUIPE 02",
-        "EQUIPE 03", 
-        "EQUIPE 04",
-        "EQUIPE 05",
-        "EQUIPE 06",
-        "EQUIPE 07",
-        "EQUIPE 08",
-        "EQUIPE 09",
-        "EQUIPE 10",
-        "EQUIPE 11"]
+        "EQUIPE 01"]
 choice = st.sidebar.selectbox("Menu de Opções",menu)
 st.sidebar.info("By: Prof. Massaki de O. Igarashi")
 
