@@ -1,0 +1,83 @@
+#libraries
+import streamlit as st
+from PIL import Image
+from io import BytesIO
+import requests
+import pandas as pd
+import altair as alt
+from urllib.error import URLError
+
+#DÚVIDAS
+rD = requests.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vRtt6VlUfp77JA2ok1dUAN5WMj3NNKCliMyG6Tb7Yu8MzUzQ5lZXjcNOWMgit6VaJw8W8lPIzjjnWVn/pub?gid=51090662&single=true&output=csv')
+dataD = rD.content
+dfD = pd.read_csv(BytesIO(dataD), index_col=0)
+NregD = len(dfD)
+dfD.columns = ['email', 'equipe', 'nome', 'duvida', 'obs']
+selecao01D = dfD['equipe']=='Equipe 01'
+df01D = dfD[selecao01D]
+
+#RESPOSTAS
+rR = requests.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vQw6XD9vI_C4zvZ6W51vut_Ze_D_OSESuXiHh1IAXeBFXRRvyQ7kyFTLbGip1obadjbZHUmaAxvXmnz/pub?gid=1789345467&single=true&output=csv')
+dataR = rR.content
+dfR = pd.read_csv(BytesIO(dataR), index_col=0)
+NregR = len(dfR)
+dfR.columns = ['email', 'equipe', 'nome', 'resposta', 'sugestao']
+selecao01R = dfR['equipe']=='Equipe 01'
+df01R = dfR[selecao01R]
+
+#Cálculo do Número de Registros por EQUIPE
+NregDf01D = len(df01D)
+NregDf01R = len(df01R)
+
+
+image01 = Image.open('ImagemLateral.jpg')
+st.sidebar.image(image01, width=300, caption='Mack Week CCT 2022') 
+st.title("DASHBOARD - EQUIPES HACKATHON")
+# st.header("Cabeçalho")
+#st.subheader("Sub Cabeçalho")
+#st.write("Como já deve ter percebido, o método st.write() é usado para escrita de texto e informações gerais!")
+menu = ["Dúvidas",
+        "Respostas",
+        "Dúvidas e Respostas",
+        "EQUIPE 01",
+        "EQUIPE 02",
+        "EQUIPE 03", 
+        "EQUIPE 04",
+        "EQUIPE 05",
+        "EQUIPE 06",
+        "EQUIPE 07",
+        "EQUIPE 08",
+        "EQUIPE 09",
+        "EQUIPE 10",
+        "EQUIPE 11"]
+choice = st.sidebar.selectbox("Menu de Opções",menu)
+st.sidebar.info("By: Prof. Massaki de O. Igarashi")
+
+if choice == "Dúvidas": 
+    st.header("Painel Analítico: DÚVIDAS")   
+    st.write('EQUIPE 01:')
+    st.info('Dúvida(s) Enviada(s)')
+    st.code(df01D['duvida']) 
+           
+elif choice == "Respostas":       
+    st.header("Painel Analítico: RESPOSTAS")    
+    st.write('EQUIPE 01:')    
+    st.warning('Resposta do(a) TUTOR(A):')
+    st.code(df01R['resposta'])  
+
+               
+elif choice == "Dúvidas e Respostas":       
+    st.header("Painel Analítico: DÚVIDAS E RESPOSTAS")  
+    colDR1, colDR2 = st.columns((1,1))
+    with colDR1:
+        st.write("Nº TOTAL de Dúvidas (Todas as Equipes):")
+        st.warning(NregD)
+    with colDR2:
+        st.write("Nº TOTAL de dúvidas RESPONDIDAS:")
+        st.info(NregR)
+    #EQUIPE 01
+    st.subheader('EQUIPE 01:')
+    st.info('Dúvida(s) Enviada(s)')
+    st.code(df01D['duvida']) 
+    st.warning('Resposta do(a) TUTOR(A):')
+    st.code(df01R['resposta'])  
