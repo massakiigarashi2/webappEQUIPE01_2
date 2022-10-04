@@ -6,6 +6,7 @@ import requests
 import pandas as pd
 import altair as alt
 from urllib.error import URLError
+import plotly.graph_objects as go
 
 #DÚVIDAS
 rD = requests.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vRtt6VlUfp77JA2ok1dUAN5WMj3NNKCliMyG6Tb7Yu8MzUzQ5lZXjcNOWMgit6VaJw8W8lPIzjjnWVn/pub?gid=51090662&single=true&output=csv')
